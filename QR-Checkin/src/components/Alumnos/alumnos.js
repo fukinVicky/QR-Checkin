@@ -2,19 +2,18 @@ import React, {Component} from 'react';
 import Navbar from '../Navbar';
 
 
-// import '../Home/home.css';
 
-class Materia extends Component{
+class Alumnos extends Component{
     constructor(props){
         super(props);
 
         }
     render(){
         return(
-            <div className="Materia">
+            <div className="Home">
                 <Navbar/>
             </div>
         )
     }
 }
-export default Materia;
+export default Alumnos;
