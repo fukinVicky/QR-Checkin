@@ -1,0 +1,28 @@
+.list-group{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+/* .container-fluid{
+    background-color: black;
+} */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.App{
+    margin: 0;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.list-group-item:hover{
+color:blue;
+}
+
