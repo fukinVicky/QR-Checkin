@@ -5,10 +5,9 @@ import {BrowserRouter,Route} from 'react-router-dom';
 import './components/Navbar';
 import Login from './components/Login/login';
 import Home from './components/Home/home';
-import Materia from './components/Materia/materia';
 import Scanner from './components/Scanner/Scanner';
-
-
+import Config from './components/Config/config';
+import Alumnos from './components/Alumnos/alumnos';
 
 class App extends Component {
 
@@ -19,8 +18,9 @@ class App extends Component {
       <main>
         <Route exact path="/" component={Login}/>
         <Route exact path="/home" component={Home}/>
-        <Route exact path="/materia" component={Materia}/>
         <Route exact path="/scan" component={Scanner}/>
+        <Route exact path="/config" component={Config}/>
+        <Route exact path="/alumnos" component={Alumnos}/>
       </main>
       </BrowserRouter>
     );
