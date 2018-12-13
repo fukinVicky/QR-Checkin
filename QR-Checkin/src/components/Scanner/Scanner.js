@@ -32,15 +32,19 @@ class Scanner extends Component {
         }
 
         return (
-            <div style={style}>
-                <QrReader
-                    delay={this.state.delay}
-                    onError={this.handleError}
-                    onScan={this.handleScan}
-                    style={{ width: "50%" }}
-                />
-                <p >{this.state.result}</p>
+            <div className="scanner">
+                <div style={style}>
+                    <QrReader
+                        delay={this.state.delay}
+                        onError={this.handleError}
+                        onScan={this.handleScan}
+                        style={{ width: "50%" }}
+                    />
+                    <p >{this.state.result}</p>
+                </div>
+                <a type="button" class="btn btn-secondary btn-lg btn-block" href="/">Salir</a>
             </div>
+            
         );
     }
 }

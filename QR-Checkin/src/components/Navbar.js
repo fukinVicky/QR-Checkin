@@ -15,7 +15,7 @@ class Navbar extends Component{
                             <a className="nav-link" href="/config">Configuar <span class="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/alumnos">Alumnos</a>
+                            <a className="nav-link" href="/scan">Scanner</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/generarqr">Generar QR</a>

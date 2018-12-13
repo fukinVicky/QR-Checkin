@@ -7,7 +7,7 @@ import Login from './components/Login/login';
 import Home from './components/Home/home';
 import Scanner from './components/Scanner/Scanner';
 import Config from './components/Config/config';
-import Alumnos from './components/Alumnos/alumnos';
+import Generarqr from './components/Generarqr/generarqr';
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ class App extends Component {
         <Route exact path="/home" component={Home}/>
         <Route exact path="/scan" component={Scanner}/>
         <Route exact path="/config" component={Config}/>
-        <Route exact path="/alumnos" component={Alumnos}/>
+        <Route exact path="/generarqr" component={Generarqr}/>
       </main>
       </BrowserRouter>
     );
