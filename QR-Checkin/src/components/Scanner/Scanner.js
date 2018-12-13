@@ -17,7 +17,6 @@ class Scanner extends Component {
             });
 
             console.log(data);
-
         }
     }
 
