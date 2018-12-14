@@ -1,0 +1,17 @@
+.input-group {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    width: 100;
+}
+
+.hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 10px solid rgba(0,0,0,.1);
+}

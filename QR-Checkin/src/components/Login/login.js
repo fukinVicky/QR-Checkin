@@ -37,7 +37,7 @@ class Login extends Component{
             <Link to='/home'>
             <input type="submit" value="Ingresar" class="login-button"/>
             </Link>
-            {/* <p class="register"><a href="">Registrar</a></p> */}
+            <p class="register"><a href="/newuser">Nuevo Usuario</a></p>
             </form>
 
         )
