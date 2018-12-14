@@ -9,7 +9,8 @@ class Config extends Component{
         this.state ={
             name:"",
             description:"",
-            listSubjects : []
+            listSubjects : [],
+            listAlumnos:[]
         }
     }
     onChangeInput=(e)=>{
@@ -37,11 +38,25 @@ class Config extends Component{
     }  
     
     componentDidMount(){
+        console.log('Local');
+        console.log(localStorage.getItem('userId'));
+        
+
         axios.get('https://qr-checkin-api.herokuapp.com/subjects')
         .then(materias=>{
             console.log(materias);
           this.setState({
             listSubjects:materias.data
+          })
+          
+        }).catch(err=> console.log(err))
+
+        axios.get('https://qr-checkin-api.herokuapp.com/users')
+        .then(alumnos=>{
+            console.log('sdfsdfsdfsd');
+            console.log(alumnos);
+          this.setState({
+            listAlumnos:alumnos.data
           })
           
         }).catch(err=> console.log(err))
@@ -53,11 +68,11 @@ class Config extends Component{
         
 
         if(this.state.listSubjects.length > 0){
-          const listMateria = this.state.listSubjects.map(materias=> {
-            return <option value={materias._id}>{materias.name}</option>
-          });
-          return listMateria;
-      }
+            const listMateria = this.state.listSubjects.map(materias=> {
+                return <option value={materias._id}>{materias.name}</option>
+            });
+            return listMateria;
+        }
     }
     
     onSubmitBtnMateria = (e) =>{
@@ -76,6 +91,36 @@ class Config extends Component{
           });
           this.props.history.push('/config')
     } 
+    onSubmitBtnAlumnos = (e) =>{
+        e.preventDefault()
+        console.log(this.state);
+        const val = document.getElementById('inputGroupSelect01').value;
+        const val2 = document.getElementById('inputGroupSelect02').value;
+        
+
+        axios.put(`https://qr-checkin-api.herokuapp.com/subjects/${val}`,{
+            user: val2
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+          this.props.history.push('/config')
+    } 
+
+    renderAlumnos = () => {
+        console.log('f');
+        
+        console.log(this.state.listAlumnos);
+        if(this.state.listAlumnos.length > 0){
+          const listaDeAlumnos = this.state.listAlumnos.map(alumnos=> {
+            return <option value={alumnos._id}>{alumnos.username}</option>
+          });
+          return listaDeAlumnos;
+        }
+    }
 
     render(){
         return(
@@ -105,21 +150,20 @@ class Config extends Component{
                     <br/>
                     <hr/>
                     <br/>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Alumno</label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>Asignar Alumno...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                    <form onSubmit={this.onSubmitBtnAlumnos}>                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect02">Alumno</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect02">
+                            {this.renderAlumnos()}
+                            </select>
 
-                        <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button">Asignar</button>
-                        </div>
-                    </div>    
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-secondary" type="submit">Asignar</button>
+                            </div>
+                        </div> 
+                    </form>   
             </div>
         )
     }
