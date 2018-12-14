@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Navbar from '../Navbar';
+// import ResizeImage from 'react-resize-image'
 import axios from 'axios';
 import './generarqr.css';
+import logo from '../Home/image/home_image.png';
 
 
 
@@ -69,7 +71,7 @@ class Generarqr extends Component{
                 <body>
                     <div className="container-fluid text-center">    
                         <div className="row content">
-                            <div className="col-sm-2 sidenav">
+                            <div className="col-sm-3 sidenav">
                             <form onSubmit={this.onSubmitBtnGenerar}>
                                 <p>
                                     <label>Seleccionar Materia</label>
@@ -83,7 +85,7 @@ class Generarqr extends Component{
                             </form>
                             
                             </div>
-                            <div className="col-sm-8 text-left"> 
+                            <div className="col-sm-6 text-left"> 
                             <h1>Welcome</h1>
                             
                             <div className="qrdiv">
@@ -95,13 +97,11 @@ class Generarqr extends Component{
                             <h3>Test</h3>
                             <p>Meow</p>
                             </div>
-                            <div className="col-sm-2 sidenav">
-                                <div className="well">
-                                    <p>Something</p>
+                            <div className="col-sm-3 sidenav">
+                                <div classname="generaqr_pic">
+                                    <img src={logo}/>
                                 </div>
-                                <div className="well">
-                                    <p>Here</p>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
