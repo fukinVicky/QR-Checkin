@@ -34,7 +34,6 @@ class Config extends Component{
           .catch(function (error) {
             console.log(error);
           });
-          this.props.history.push('/')
     }  
     
     componentDidMount(){
@@ -60,6 +59,23 @@ class Config extends Component{
           return listMateria;
       }
     }
+    
+    onSubmitBtnMateria = (e) =>{
+        e.preventDefault()
+        console.log(this.state);
+        
+        axios.post('https://qr-checkin-api.herokuapp.com/subjects',{
+            name: this.state.name,
+            description: this.state.description
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+          this.props.history.push('/config')
+    } 
 
     render(){
         return(
@@ -77,11 +93,11 @@ class Config extends Component{
                             </select>
                             </div>
                         </div>
-                        <form>
+                        <form onSubmit={this.onSubmitBtnMateria}>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Agregar Nueva Materia" aria-label="Materia" aria-describedby="basic-addon2"/>
+                                <input id= "name" type="text" className="form-control" placeholder="Agregar Nueva Materia" aria-label="Materia" aria-describedby="basic-addon2" onChange={this.onChangeInput} value={this.state.name}/>
                                 <div className="input-group-append">
-                                    <button className="btn btn-outline-secondary" type="button">Agregar</button>
+                                    <button className="btn btn-outline-secondary" type="submit" >Agregar</button>
                                 </div>
                             </div>
                         </form> 
